@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-alexa-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-alexa
+  template:
+    metadata:
+      labels:
+        app: app-alexa
+    spec:
+      containers:
+        - name: app-alexa-container
+          image: app-alexa:v.01
+
+          ports:
+            - containerPort: 5000
